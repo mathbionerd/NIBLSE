@@ -8,7 +8,7 @@ path <- "/Users/melissa/Desktop/NIBLSE_analysis/"
 plots_dir <- paste(path,"plots",sep="")
 dir.create(plots_dir) 
 
-syllabi <- paste(path,"NIBLSE_Syllabi-Survey_summary_data.txt", sep="")
+syllabi <- paste(path,"NIBLSE_syllabi_data.txt", sep="")
 syllabi_data <- read.table(file=syllabi,header=TRUE, sep="\t",fill = TRUE)
 
 
