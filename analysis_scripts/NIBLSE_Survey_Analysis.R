@@ -18,7 +18,7 @@ path <- "/Users/melissa/Desktop/NIBLSE_analysis/" #For Example
 
 # This will automatincally make the path to the survey data in tab-delimited format
 # If you have edited the name of the survey data file on your computer, you will need to edit it below.
-survey <- paste(path,"NIBLSE_data.txt", sep="")
+survey <- paste(path,"NIBLSE_survey_data.txt", sep="")
 # These will make a directory for printing plots
 # Later in the program, it will generate additional directories in this one
 # to help keep similar plots together.
