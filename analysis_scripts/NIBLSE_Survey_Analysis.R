@@ -3509,10 +3509,10 @@ stats_10 <- cbind(summary(Q1_10),summary(Q2_10),summary(Q3_10),summary(Q4_10),su
 colnames(stats_10) <- c("S1", "S2", "S3","S4","S5","S6","S7","S8","S9","S10","S11","S12","S13","S14","S15")
 
 stats_10_20 <- cbind(summary(Q1_10_20),summary(Q2_10_20),summary(Q3_10_20),summary(Q4_10_20),summary(Q5_10_20),summary(Q6_10_20),summary(Q7_10_20),summary(Q8_10_20),summary(Q9_10_20),summary(Q10_10_20),summary(Q11_10_20),summary(Q12_10_20),summary(Q13_10_20),summary(Q14_10_20),summary(Q15_10_20))
-colnames(stats_10_20) <- c("S1", "S2", "S3","S4","S5","S6","S7","S8","S9","C10_20","S11","S12","S13","S14","S15")
+colnames(stats_10_20) <- c("S1", "S2", "S3","S4","S5","S6","S7","S8","S9","S10","S11","S12","S13","S14","S15")
 
 stats_21_30 <- cbind(summary(Q1_21_30),summary(Q2_21_30),summary(Q3_21_30),summary(Q4_21_30),summary(Q5_21_30),summary(Q6_21_30),summary(Q7_21_30),summary(Q8_21_30),summary(Q9_21_30),summary(Q10_21_30),summary(Q11_21_30),summary(Q12_21_30),summary(Q13_21_30),summary(Q14_21_30),summary(Q15_21_30))
-colnames(stats_21_30) <- c("S1", "S2", "S3","S4","S5","S6","S7","S8","S9","C21_30","S11","S12","S13","S14","S15")
+colnames(stats_21_30) <- c("S1", "S2", "S3","S4","S5","S6","S7","S8","S9","S10","S11","S12","S13","S14","S15")
 
 stats_31 <- cbind(summary(Q1_31),summary(Q2_31),summary(Q3_31),summary(Q4_31),summary(Q5_31),summary(Q6_31),summary(Q7_31),summary(Q8_31),summary(Q9_31),summary(Q10_31),summary(Q11_31),summary(Q12_31),summary(Q13_31),summary(Q14_31),summary(Q15_31))
 colnames(stats_31) <- c("S1", "S2", "S3","S4","S5","S6","S7","S8","S9","S10","S11","S12","S13","S14","S15")
@@ -3774,7 +3774,7 @@ dev.off()
 # dev.off()
 
 # Figure in Greyscale
-# pdf(paste(plots_dir,'/Figure3_C13.pdf', sep=""),width=4,height=5)
+# pdf(paste(plots_dir,'/Figure3_S13.pdf', sep=""),width=4,height=5)
 # par(mfrow=c(2,3),mar=c(6.5,4.1,4.1,1),oma=c(0,0,3,0))
 # barplot(mean_carnegie_plots[,3], ylim=c(0,5), las=3, col=c("white","gray66","gray33","black"), space=0, main="Carnegie", ylab="Mean Likert")
 # barplot(mean_earned_plots[,3], ylim=c(0,5), las=3, col=c("white","gray75","gray50","gray25","black"), space=0, main="Earned", ylab="Mean Likert")
@@ -3791,7 +3791,7 @@ numdata <- length()
 blues <- brewer.pal(numdata, "Blues")
 
 
-pdf(paste(plots_dir,'/Figure3_C13.pdf', sep=""),width=4,height=5)
+pdf(paste(plots_dir,'/Figure3_S13.pdf', sep=""),width=4,height=5)
 par(mfrow=c(2,3),mar=c(6.5,4.1,4.1,1),oma=c(0,0,3,0))
 numdata <- length(mean_carnegie_plots[,3])
 blues <- brewer.pal(numdata, "Blues")
