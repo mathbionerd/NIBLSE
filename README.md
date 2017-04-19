@@ -12,7 +12,8 @@ NIBLSE homepage on QUBES hub: [https://qubeshub.org/groups/niblse](https://qubes
 
 |Item|Notes|
 |----|-----|
-|NIBLSE_data.txt|This is an tab-delimited text formatted output from the original survey data. |
+|NIBLSE_survey_data.txt|This is an tab-delimited text formatted output from the original survey data. |
+|NIBLSE_syllabi_data.txt|This is an tab-delimited text formatted output of summary data from the submitted syllabi. |
 |analysis_scripts/|This directory contains the R scripts and outputs from our analysis|
 
 
