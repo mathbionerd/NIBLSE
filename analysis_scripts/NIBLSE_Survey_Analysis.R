@@ -39,7 +39,7 @@ ncol(survey_data)
 ### First let's see the output of the questions about the 15 skills we asked aobut
 ### without being concered about breaking down by category
 
-# Q13_1	In your opinion, how important is it for undergraduates majoring in life sciences or closely related discplines to. . . Understand the role of computation and data mining in hypothesis-driven processes within the life sciences?	Not at all important	Slightly important	Moderately important	Very important	Extremely important	No opionion
+# Q13_1  In your opinion, how important is it for undergraduates majoring in life sciences or closely related discplines to. . . Understand the role of computation and data mining in hypothesis-driven processes within the life sciences?	Not at all important	Slightly important	Moderately important	Very important	Extremely important	No opionion
 # Q13_2	In your opinion, how important is it for undergraduates majoring in life sciences or closely rela...-Understand computational concepts used in bioinformatics, e.g., meaning of algorithm, bioinformatics file formats?	Not at all important	Slightly important	Moderately important	Very important	Extremely important	No opionion
 # Q13_3	In your opinion, how important is it for undergraduates majoring in life sciences or closely related discplines to. . . Know statistical concepts used in bioinformatics, e.g., E-value, z-scores, t-test?	Not at all important	Slightly important	Moderately important	Very important	Extremely important	No opionion
 # Q13_4	In your opinion, how important is it for undergraduates majoring in life sciences or closely related discplines to. . .  Know how to access genomic data, e.g., in NCBI nucleotide databases?	Not at all important	Slightly important	Moderately important	Very important	Extremely important	No opionion
@@ -79,7 +79,7 @@ t(count_Q)
 # Q25	What is the name of your department/unit (e.g., Department of Biology, Biochemistry Department, School of Interdisciplinary Informatics)?
 # Q26	How many full-time faculty are in your department/unit? (Do not include part-time faculty or adjuncts.)	< 10	10 - 20	21 - 30	31 - 40	41 - 50	> 50	Don't know
 # Q27	How many undergraduate students are in your department/unit (all majors)?	< 50	51 - 100	101 - 500	501 - 2000	> 2000	Don't know
-                                                                                                         
+
 # First we want to only consider categorical variables that were answered (e.g., exclude "Prefer not to answer")
 # And, let's see how much data we have by different demographic categories
 
@@ -1088,24 +1088,45 @@ blues <- brewer.pal(numdata, "Blues")
 
 pdf(paste(plots_by_demographic,'/Skills_by_all.pdf', sep=""),width=10,height=5)
 par(mfrow=c(3,5), mai = c(0.3, 0.5, 0.5, 0.2))
-barplot(allQ1, beside=T, col=blues, main="S1 - Role",ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
+barplot(allQ1, beside=T, col=blues, main=substitute(paste(bold("S1 ("), bolditalic('Role'),bold(")"))),ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
+barplot(allQ2, beside=T, col=blues, main=substitute(paste(bold("S2 ("), bolditalic('Concepts'),bold(")"))),ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
+barplot(allQ3, beside=T, col=blues, main=substitute(paste(bold("S3 ("), bolditalic('Statistics'),bold(")"))),ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
+barplot(allQ4, beside=T, col=blues, main=substitute(paste(bold("S4 ("), bolditalic('Access genomic'),bold(")"))),ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
+barplot(allQ5, beside=T, col=blues, main=substitute(paste(bold("S5 ("), bolditalic('Tools genomic'),bold(")"))),ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
+barplot(allQ6, beside=T, col=blues, main=substitute(paste(bold("S6 ("), bolditalic('Access expression'),bold(")"))),ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
+barplot(allQ7, beside=T, col=blues, main=substitute(paste(bold("S7 ("), bolditalic('Tools expression'),bold(")"))),ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
+barplot(allQ8, beside=T, col=blues, main=substitute(paste(bold("S8 ("), bolditalic('Access proteomic'),bold(")"))),ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
+barplot(allQ9, beside=T, col=blues, main=substitute(paste(bold("S9 ("), bolditalic('Tools proteomic'),bold(")"))),ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
+barplot(allQ10, beside=T, col=blues, main=substitute(paste(bold("S10 ("), bolditalic('Access metabolomic'),bold(")"))),ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
+barplot(allQ11, beside=T, col=blues, main=substitute(paste(bold("S11 ("), bolditalic('Pathways'),bold(")"))),ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
+barplot(allQ12, beside=T, col=blues, main=substitute(paste(bold("S12 ("), bolditalic('Metagenomics'),bold(")"))),ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
+barplot(allQ13, beside=T, col=blues, main=substitute(paste(bold("S13 ("), bolditalic('Scripting'),bold(")"))),ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
+barplot(allQ14, beside=T, col=blues, main=substitute(paste(bold("S14 ("), bolditalic('Software'),bold(")"))),ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
+barplot(allQ15, beside=T, col=blues, main=substitute(paste(bold("S15 ("), bolditalic('Comp Environment'),bold(")"))),ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
+dev.off()
+
+# Plots by demographic in order of knowing/doing skills: 
+# Knowing skills; S1 – S4, S6, S8, and S10)
+# Skills requiring direct engagement (practicing); S5, S7, S9, S11 – S15
+                                                                                          
+pdf(paste(plots_by_demographic,'/Skills_by_all_knowing-practice.pdf', sep=""),width=10,height=5)
+par(mfrow=c(3,5), mai = c(0.3, 0.5, 0.5, 0.2))
+barplot(allQ1, beside=T, col=blues, main=substitute(paste(bold("S1", italic('(Role)')))),ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
 barplot(allQ2, beside=T, col=blues, main="S2 - Concepts",ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
 barplot(allQ3, beside=T, col=blues, main="S3 - Statistics",ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
 barplot(allQ4, beside=T, col=blues, main="S4 - Access genomic",ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
-barplot(allQ5, beside=T, col=blues, main="S5 - Tools genomic",ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
 barplot(allQ6, beside=T, col=blues, main="S6 - Access expression",ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
-barplot(allQ7, beside=T, col=blues, main="S7 - Tools expression",ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
 barplot(allQ8, beside=T, col=blues, main="S8 - Access proteomic",ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
-barplot(allQ9, beside=T, col=blues, main="S9 - Tools proteomic",ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
 barplot(allQ10, beside=T, col=blues, main="S10 - Access metabolomic",ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
+barplot(allQ5, beside=T, col=blues, main="S5 - Tools genomic",ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
+barplot(allQ7, beside=T, col=blues, main="S7 - Tools expression",ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
+barplot(allQ9, beside=T, col=blues, main="S9 - Tools proteomic",ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
 barplot(allQ11, beside=T, col=blues, main="S11 - Pathways",ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
 barplot(allQ12, beside=T, col=blues, main="S12 - Metagenomics",ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
 barplot(allQ13, beside=T, col=blues, main="S13 - Scripting",ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
 barplot(allQ14, beside=T, col=blues, main="S14 - Software",ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
 barplot(allQ15, beside=T, col=blues, main="S15 - Comp environment",ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
 dev.off()
-
-
 
 
 
@@ -3783,7 +3804,8 @@ numdata <- length(mean_bx_training_plots[,13])
 blues <- brewer.pal(numdata, "Blues")
 barplot(mean_bx_training_plots[,13], ylim=c(0,5), las=3, col=blues, space=0, main="Training", ylab="Mean Likert")
 
-mtext("Skill 3 - Statistics", outer = TRUE)
-mtext("Skill 13 - Scripting", side = 3, outer = TRUE, line = -18)
+#mtext("Skill 3 - Statistics", outer = TRUE)
+#mtext("Skill 13 - Scripting", side = 3, outer = TRUE, line = -18)
+mtext(substitute(paste(bold("S3 ("), bolditalic('Statistics'),bold(")"))), outer = TRUE)
+mtext(substitute(paste(bold("S13 ("), bolditalic('Scripting'),bold(")"))), side = 3, outer = TRUE, line = -18)
 dev.off()
-
