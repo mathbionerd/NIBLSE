@@ -13,13 +13,15 @@ library(RColorBrewer)
 ###
 
 # EDIT THE PATH TO WHERE THE SURVEY DATA IS: 
-path <- "/Users/melissa/Desktop/NIBLSE_analysis/" #for example
+# path <- "/Users/melissa/Dropbox (Personal)/NIBLSE/Survey_Data/"
+# path <- "/Users/mwilsons/Dropbox/NIBLSE/Survey_Data/"
+path <- "/Users/melissa/Desktop/NIBLSE_analysis/"
 
 # EVERYTHING ELSE SHOULD RUN SO LONG AS YOU HAVE NOT EDITED THE NAME OF THE SURVEY DATA
 
 # This will automatincally make the path to the survey data in tab-delimited format
 # If you have edited the name of the survey data file on your computer, you will need to edit it below.
-survey <- paste(path,"NIBLSE_survey_data.txt", sep="")
+survey <- paste(path,"NIBLSE_data_with_location.txt", sep="")
 # These will make a directory for printing plots
 # Later in the program, it will generate additional directories in this one
 # to help keep similar plots together.
@@ -131,7 +133,7 @@ ethnicity <- survey_data$Q16
 # ethnicity[ethnicity==3] <- NA
 
 num_ethnicity <- with(survey_data, table(ethnicity,Q13_1))
-rownames(num_ethnicity) <- c("His_Lat","Non","Unreported")
+rownames(num_ethnicity) <- c("His & Lat","Non","Unreported")
 rep_ethnicity <- rowSums(num_ethnicity,dims=1)
 
 # Q17	Highest earned degree. If "other," please explain.
@@ -269,8 +271,8 @@ rep_earned <- rowSums(num_earned,dims=1)
 ## Not many, so merge: 
 # 4: Some undergraduate courses
 # 5: Undergraduate certificate -----> No one had this, so delete
-# 6: Undergraduate degree
-# 7: Post-graduate certificate
+# 6: Undergraduate degree ----------> 5 people had this
+# 7: Post-graduate certificate -----> 12 people had this
 bx_training <- survey_data$Q3
 bx_training[bx_training==5] <- 4
 bx_training[bx_training==6] <- 4
@@ -278,7 +280,7 @@ bx_training[bx_training==7] <- 4
 #bx_training[bx_training==10] <- NA
 
 num_bx_training <- with(survey_data, table(bx_training,Q13_1))
-rownames(num_bx_training) <- c("None","No_form","Short","Under","Grad_class","Grad_deg")
+rownames(num_bx_training) <- c("None","Self","Short","Undergrad","Grad_class","Grad_deg")
 rep_bx_training <- rowSums(num_bx_training,dims=1)
 
 

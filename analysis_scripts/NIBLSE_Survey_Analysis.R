@@ -276,7 +276,7 @@ bx_training[bx_training==7] <- 4
 bx_training[bx_training==10] <- NA
 
 num_bx_training <- with(survey_data, table(bx_training,Q13_1))
-rownames(num_bx_training) <- c("None","No_form","Short","Under","Grad_class","Grad_deg")
+rownames(num_bx_training) <- c("None","No_form","Short","Under","Grad class","Grad deg")
 rep_bx_training <- rowSums(num_bx_training,dims=1)
 
 
@@ -1109,9 +1109,9 @@ dev.off()
 # Knowing skills; S1 – S4, S6, S8, and S10)
 # Skills requiring direct engagement (practicing); S5, S7, S9, S11 – S15
                                                                                           
-pdf(paste(plots_by_demographic,'/Skills_by_all_knowing-practice.pdf', sep=""),width=10,height=5)
+pdf(paste(plots_by_demographic,'/Skills_by_all.pdf', sep=""),width=10,height=5)
 par(mfrow=c(3,5), mai = c(0.3, 0.5, 0.5, 0.2))
-barplot(allQ1, beside=T, col=blues, main=substitute(paste(bold("S1", italic('(Role)')))),ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
+barplot(allQ1, beside=T, col=blues, main="S1 - Role",ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
 barplot(allQ2, beside=T, col=blues, main="S2 - Concepts",ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
 barplot(allQ3, beside=T, col=blues, main="S3 - Statistics",ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
 barplot(allQ4, beside=T, col=blues, main="S4 - Access genomic",ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
@@ -2421,7 +2421,7 @@ stats_bx_training_G_deg <- cbind(summary(Q1_G_deg),summary(Q2_G_deg),summary(Q3_
 colnames(stats_bx_training_G_deg) <- c("S1", "S2", "S3","S4","S5","S6","S7","S8","S9","S10","S11","S12","S13","S14","S15")
 
 mean_bx_training <- cbind(stats_bx_training_no[4,],stats_bx_training_self[4,],stats_bx_training_short[4,],stats_bx_training_U[4,],stats_bx_training_G_cla[4,],stats_bx_training_G_deg[4,])
-colnames(mean_bx_training) <- c("None", "Self", "Short","Undergrad","Grad_class","Grad_deg")
+colnames(mean_bx_training) <- c("None", "Self", "Short","Undergrad","Grad class","Grad deg")
 mean_bx_training_plots <- t(mean_bx_training)
 mean_bx_training <- cbind(mean_bx_training, P_no_self, P_no_short, P_no_U, P_no_G_cla, P_no_G_deg, P_self_short, P_self_U, P_self_G_cla, P_self_G_deg, P_short_U, P_short_G_cla, P_short_G_deg, P_U_G_cla, P_U_G_deg, P_G_cla_G_deg)
 
@@ -3786,7 +3786,7 @@ barplot(mean_carnegie_plots[,3], ylim=c(0,5), las=3, col=blues, space=0, main="C
 
 numdata <- length(mean_earned_plots[,3])
 blues <- brewer.pal(numdata, "Blues")
-barplot(mean_earned_plots[,3], ylim=c(0,5), las=3, col=blues, space=0, main="Earned", ylab="Mean Likert")
+barplot(mean_earned_plots[,3], ylim=c(0,5), las=3, col=blues, space=0, main="Year Earned", ylab="Mean Likert")
 
 numdata <- length(mean_bx_training_plots[,3])
 blues <- brewer.pal(numdata, "Blues")
@@ -3798,7 +3798,7 @@ barplot(mean_carnegie_plots[,13], ylim=c(0,5), las=3, col=blues, space=0, main="
 
 numdata <- length(mean_earned_plots[,13])
 blues <- brewer.pal(numdata, "Blues")
-barplot(mean_earned_plots[,13], ylim=c(0,5), las=3, col=blues, space=0, main="Earned", ylab="Mean Likert")
+barplot(mean_earned_plots[,13], ylim=c(0,5), las=3, col=blues, space=0, main="Year Earned", ylab="Mean Likert")
 
 numdata <- length(mean_bx_training_plots[,13])
 blues <- brewer.pal(numdata, "Blues")
@@ -3809,3 +3809,5 @@ barplot(mean_bx_training_plots[,13], ylim=c(0,5), las=3, col=blues, space=0, mai
 mtext(substitute(paste(bold("S3 ("), bolditalic('Statistics'),bold(")"))), outer = TRUE)
 mtext(substitute(paste(bold("S13 ("), bolditalic('Scripting'),bold(")"))), side = 3, outer = TRUE, line = -18)
 dev.off()
+
+
