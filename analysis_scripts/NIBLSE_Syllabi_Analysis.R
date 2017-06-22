@@ -27,25 +27,25 @@ syllabi_data$VE.Percentage <- syllabi_data$VE/syllabi_data$Total.Responses
 Skill_comparison <- data.frame(cbind(syllabi_data$VE.Percentage,syllabi_data$Skills.In.Syllabi.Percentage))
 colnames(Skill_comparison) <- c("Survey","Syllabi")
 
-rownames(Skill_comparison) <- c("S1 - Role","S2 - Concepts","S3 - Statistics","S4 - Access genomic","S5 - Tools genomic","S6 - Access expression","S7 - Tools expression","S8 - Access proteomic","S9 - Tools proteomic","S10 - Access metabolic","S11 - Pathways","S12 - Metagenomics","S13 - Scripting","S14 - Software","S15 - Computational environment")
+rownames(Skill_comparison) <- c("S1 - Role","S2 - Concepts","S3 - Statistics","S4 - Access genomic","S5 - Tools genomic","S6 - Access expression","S7 - Tools expression","S8 - Access proteomic","S9 - Tools proteomic","S10 - Access metabolomic","S11 - Pathways","S12 - Metagenomics","S13 - Scripting","S14 - Software","S15 - Computational environment")
 # rownames(Skill_comparison) <- c("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15")
 
-# labs <- c("S1 - Role","S2 - Concepts","S3 - Statistics","S4 - Access genomic","S5 - Tools genomic","S6 - Access expression","S7 - Tools expression","S8 - Access proteomic","S9 - Tools proteomic","S10 - Access metabolic","S11 - Pathways","S12 - Metagenomics","S13 - Scripting","S14 - Software","S15 - Computational environment")
-# labs <- c("S1 (Role)","S2 (Concepts)","S3 (Statistics)","S4 (Access genomic)","S5 (Tools genomic)","S6 (Access expression)","S7 (Tools expression)","S8 (Access proteomic)","S9 (Tools proteomic)","S10 (Access metabolic)","S11 (Pathways)","S12 (Metagenomics)","S13(Scripting)","S14 (Software)","S15 (Computational environment)")
-#labs <- c("S1 (Role)","S2 (Concepts)","S3 (Statistics)","S4 (Access genomic)","S5 (Tools genomic)","S6 (Access expression)","S7 (Tools expression)","S8 (Access proteomic)","S9 (Tools proteomic)","S10 (Access metabolic)","S11 (Pathways)","S12 (Metagenomics)","S13(Scripting)","S14 (Software)","S15 (Computational environment)")
-#labs <- c("S4 (Access genomic)","S1 (Role)","S3 (Statistics)","S8 (Access proteomic)","S6 (Access expression)","S2 (Concepts)","S10 (Access metabolic)","S5 (Tools genomic)","S9 (Tools proteomic)","S14 (Software)","S15 (Computational environment)","S7 (Tools expression)","S11 (Pathways)","S12 (Metagenomics)","S13(Scripting)")
+# labs <- c("S1 - Role","S2 - Concepts","S3 - Statistics","S4 - Access genomic","S5 - Tools genomic","S6 - Access expression","S7 - Tools expression","S8 - Access proteomic","S9 - Tools proteomic","S10 - Access metabolomic","S11 - Pathways","S12 - Metagenomics","S13 - Scripting","S14 - Software","S15 - Computational environment")
+# labs <- c("S1 (Role)","S2 (Concepts)","S3 (Statistics)","S4 (Access genomic)","S5 (Tools genomic)","S6 (Access expression)","S7 (Tools expression)","S8 (Access proteomic)","S9 (Tools proteomic)","S10 (Access metabolomic)","S11 (Pathways)","S12 (Metagenomics)","S13(Scripting)","S14 (Software)","S15 (Computational environment)")
+#labs <- c("S1 (Role)","S2 (Concepts)","S3 (Statistics)","S4 (Access genomic)","S5 (Tools genomic)","S6 (Access expression)","S7 (Tools expression)","S8 (Access proteomic)","S9 (Tools proteomic)","S10 (Access metabolomic)","S11 (Pathways)","S12 (Metagenomics)","S13(Scripting)","S14 (Software)","S15 (Computational environment)")
+#labs <- c("S4 (Access genomic)","S1 (Role)","S3 (Statistics)","S8 (Access proteomic)","S6 (Access expression)","S2 (Concepts)","S10 (Access metabolomic)","S5 (Tools genomic)","S9 (Tools proteomic)","S14 (Software)","S15 (Computational environment)","S7 (Tools expression)","S11 (Pathways)","S12 (Metagenomics)","S13(Scripting)")
 
 
 #ordered <- Skill_comparison[order(-Skill_comparison$Survey),]
 ordered <- rbind(Skill_comparison[4,],Skill_comparison[1,],Skill_comparison[3,],Skill_comparison[8,],Skill_comparison[6,],Skill_comparison[2,],Skill_comparison[10,],Skill_comparison[5,],Skill_comparison[9,],Skill_comparison[14,],Skill_comparison[15,],Skill_comparison[7,],Skill_comparison[11,],Skill_comparison[12,],Skill_comparison[13,])
 
 
-pdf(paste(plots_dir,'/Survey-Syllabi.pdf', sep=""),width=10,height=6)
+pdf(paste(plots_dir,'/Figure4_Survey-Syllabi.pdf', sep=""),width=10,height=6)
 par(mar=c(14,4.1,4.1,2.1))  #bottom, left, top, right
 # barplot(t(ordered),beside=T,ylim=c(0,1),col=c("blue","grey"),legend=T,bty="n",las=3)
 x <- barplot(t(ordered),beside=T,ylim=c(0,1),col=c("blue","grey"),xaxt="n")
 #text(cex=1, x=x-0.5, y=-1.25, labs, xpd=TRUE, srt=45)
-text(c("S4 (Access genomic)","S1 (Role)","S3 (Statistics)","S8 (Access proteomic)","S6 (Access expression)","S2 (Concepts)","S10 (Access metabolic)","S5 (Tools genomic)","S9 (Tools proteomic)","S14 (Software)","S15 (Computational environment)","S7 (Tools expression)","S11 (Pathways)","S12 (Metagenomics)","S13(Scripting)"), cex=1,x=colMeans(x)-.25,y=-0.1, xpd=NA, srt=60, adj=1)
+text(c("S4 (Access genomic)","S1 (Role)","S3 (Statistics)","S8 (Access proteomic)","S6 (Access expression)","S2 (Concepts)","S10 (Access metabolomic)","S5 (Tools genomic)","S9 (Tools proteomic)","S14 (Software)","S15 (Computational environment)","S7 (Tools expression)","S11 (Pathways)","S12 (Metagenomics)","S13(Scripting)"), cex=1,x=colMeans(x)-.25,y=-0.1, xpd=NA, srt=60, adj=1)
 mtext("Proportion", side=2, line=3,font=2)
 mtext("Skill", side=1, line=12,font=2)
 abline(v=21.5, lty=2)
