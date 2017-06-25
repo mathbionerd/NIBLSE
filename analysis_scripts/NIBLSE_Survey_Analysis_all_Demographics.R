@@ -383,7 +383,7 @@ numdata <- length()
 blues <- brewer.pal(numdata, "Blues")
 
 # Now, plot the representation by demographics, calculated above
-pdf(paste(plots_dir,'/Demographics_all.pdf', sep=""))
+pdf(paste(plots_dir,'/Figure1_Demographics_all.pdf', sep=""))
 par(mfrow=c(3,4))
 numdata <- length(rep_gender)
 blues <- brewer.pal(numdata, "Blues")

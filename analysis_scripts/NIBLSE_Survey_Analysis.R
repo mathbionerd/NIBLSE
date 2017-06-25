@@ -390,6 +390,21 @@ rep_total_students
 rep_total_undergrads
 rep_undergrad_majors
 
+# Calculate sum of people who responded within any given demographic category
+# This number does not include people who declined to respond to that category
+
+sum(rep_gender)
+sum(rep_race)
+sum(rep_ethnicity)
+sum(rep_highest_degree)
+sum(rep_earned)
+sum(rep_bx_training)
+sum(rep_carnegie)
+sum(rep_minority_serving)
+sum(rep_total_students)
+sum(rep_total_undergrads)
+sum(rep_undergrad_majors)
+
 
 # Second we want to exclude from our analysis rankings of 6 (which as "NA", and will otherwise artificially inflate means & medians)
 Q1 <- survey_data$Q13_1
@@ -1086,8 +1101,9 @@ numdata <- length(allQ1)
 blues <- brewer.pal(numdata, "Blues")
 
 
-pdf(paste(plots_by_demographic,'/Skills_by_all.pdf', sep=""),width=10,height=5)
+pdf(paste(plots_by_demographic,'/Figure2_Skills_by_all.pdf', sep=""),width=10,height=5)
 par(mfrow=c(3,5), mai = c(0.3, 0.5, 0.5, 0.2))
+# barplot(allQ1, beside=T, col=blues, main=substitute(paste(bold('S1'))),ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
 barplot(allQ1, beside=T, col=blues, main=substitute(paste(bold("S1 ("), bolditalic('Role'),bold(")"))),ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
 barplot(allQ2, beside=T, col=blues, main=substitute(paste(bold("S2 ("), bolditalic('Concepts'),bold(")"))),ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
 barplot(allQ3, beside=T, col=blues, main=substitute(paste(bold("S3 ("), bolditalic('Statistics'),bold(")"))),ylim=c(0,500), space=c(0,0,0,0,0),cex.main=1.1)
