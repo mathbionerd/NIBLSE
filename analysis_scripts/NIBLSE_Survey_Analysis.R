@@ -249,7 +249,8 @@ earned <- survey_data$Q18
 earned[earned==68] <- NA
 
 num_earned <- with(survey_data, table(earned,Q13_1))
-rownames(num_earned) <- c("1970","1980","1990","2000","2010")
+# rownames(num_earned) <- c("1970","1980","1990","2000","2010")
+rownames(num_earned) <- c("Before 1980","1980-1989","1990-1999","2000-2009","After 2009")
 rep_earned <- rowSums(num_earned,dims=1)
 
 
@@ -371,7 +372,7 @@ undergrad_majors[undergrad_majors==6] <- NA
 
 num_undergrad_majors <- with(survey_data, table(undergrad_majors,Q13_1))
 #rownames(num_undergrad_majors) <- c("50","51-100","101-500","501-2000",">2000")
-rownames(num_undergrad_majors) <- c("<101","101-500",">501")
+rownames(num_undergrad_majors) <- c("<101","101-500",">500")
 rep_undergrad_majors <- rowSums(num_undergrad_majors,dims=1)
 
 
@@ -1044,21 +1045,21 @@ undergrad_majorsQ13 <- t(table(undergrad_majors,Q13))
 undergrad_majorsQ14 <- t(table(undergrad_majors,Q14))
 undergrad_majorsQ15 <- t(table(undergrad_majors,Q15))
 
-colnames(undergrad_majorsQ1) <- c("<101","101-500",">501")
-colnames(undergrad_majorsQ2) <- c("<101","101-500",">501")
-colnames(undergrad_majorsQ3) <- c("<101","101-500",">501")
-colnames(undergrad_majorsQ4) <- c("<101","101-500",">501")
-colnames(undergrad_majorsQ5) <- c("<101","101-500",">501")
-colnames(undergrad_majorsQ6) <- c("<101","101-500",">501")
-colnames(undergrad_majorsQ7) <- c("<101","101-500",">501")
-colnames(undergrad_majorsQ8) <- c("<101","101-500",">501")
-colnames(undergrad_majorsQ9) <- c("<101","101-500",">501")
-colnames(undergrad_majorsQ10) <- c("<101","101-500",">501")
-colnames(undergrad_majorsQ11) <- c("<101","101-500",">501")
-colnames(undergrad_majorsQ12) <- c("<101","101-500",">501")
-colnames(undergrad_majorsQ13) <- c("<101","101-500",">501")
-colnames(undergrad_majorsQ14) <- c("<101","101-500",">501")
-colnames(undergrad_majorsQ15) <- c("<101","101-500",">501")
+colnames(undergrad_majorsQ1) <- c("<101","101-500",">500")
+colnames(undergrad_majorsQ2) <- c("<101","101-500",">500")
+colnames(undergrad_majorsQ3) <- c("<101","101-500",">500")
+colnames(undergrad_majorsQ4) <- c("<101","101-500",">500")
+colnames(undergrad_majorsQ5) <- c("<101","101-500",">500")
+colnames(undergrad_majorsQ6) <- c("<101","101-500",">500")
+colnames(undergrad_majorsQ7) <- c("<101","101-500",">500")
+colnames(undergrad_majorsQ8) <- c("<101","101-500",">500")
+colnames(undergrad_majorsQ9) <- c("<101","101-500",">500")
+colnames(undergrad_majorsQ10) <- c("<101","101-500",">500")
+colnames(undergrad_majorsQ11) <- c("<101","101-500",">500")
+colnames(undergrad_majorsQ12) <- c("<101","101-500",">500")
+colnames(undergrad_majorsQ13) <- c("<101","101-500",">500")
+colnames(undergrad_majorsQ14) <- c("<101","101-500",">500")
+colnames(undergrad_majorsQ15) <- c("<101","101-500",">500")
 
 pdf(paste(plots_by_demographic,'/Skills_by_undergrad_majors.pdf', sep=""),width=10,height=5)
 par(mfrow=c(3,5))
@@ -1845,7 +1846,8 @@ colnames(stats_earned_1970) <- c("S1", "S2", "S3","S4","S5","S6","S7","S8","S9",
 
 
 mean_earned <- cbind(stats_earned_1970[4,],stats_earned_1980[4,],stats_earned_1990[4,],stats_earned_2000[4,],stats_earned_2010[4,])
-colnames(mean_earned) <- c("1970","1980","1990","2000","2010")
+# colnames(mean_earned) <- c("1970","1980","1990","2000","2010")
+colnames(mean_earned) <- c("Before 1980","1980-1989","1990-1999","2000-2009","After 2009")
 mean_earned_plots <- t(mean_earned)
 mean_earned <- cbind(mean_earned, P_1980_1970, P_1990_1970, P_1990_1980, P_2000_1970, P_2000_1980, P_2000_1990, P_2010_1970, P_2010_1980, P_2010_1990, P_2010_2000)
 
@@ -3703,7 +3705,7 @@ stats_501 <- cbind(summary(Q1_501),summary(Q2_501),summary(Q3_501),summary(Q4_50
 colnames(stats_501) <- c("S1", "S2", "S3","S4","S5","S6","S7","S8","S9","S10","S11","S12","S13","S14","S15")
 
 mean_undergrad_majors <- cbind(stats_100[4,],stats_101_500[4,],stats_501[4,])
-colnames(mean_undergrad_majors) <- c("<101", "101-500", ">501")
+colnames(mean_undergrad_majors) <- c("<101", "101-500", ">500")
 mean_undergrad_majors_plots <- t(mean_undergrad_majors)
 mean_undergrad_majors <- cbind(mean_undergrad_majors, P_100_101_500, P_100_501, P_101_500_501)
 
@@ -3795,7 +3797,7 @@ blues <- brewer.pal(numdata, "Blues")
 
 
 pdf(paste(plots_dir,'/Figure3_S13.pdf', sep=""),width=4,height=5)
-par(mfrow=c(2,3),mar=c(6.5,4.1,4.1,1),oma=c(0,0,3,0))
+par(mfrow=c(2,3),mar=c(7,4.1,4.1,1),oma=c(0,0,3,0))
 numdata <- length(mean_carnegie_plots[,3])
 blues <- brewer.pal(numdata, "Blues")
 barplot(mean_carnegie_plots[,3], ylim=c(0,5), las=3, col=blues, space=0, main="Carnegie", ylab="Mean Likert")

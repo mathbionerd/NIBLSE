@@ -252,7 +252,8 @@ earned <- survey_data$Q18
 earned[earned==68] <- 6000
 
 num_earned <- with(survey_data, table(earned,Q13_1))
-rownames(num_earned) <- c("1970","1980","1990","2000","2010","Unreported")
+#rownames(num_earned) <- c("1970","1980","1990","2000","2010","Unreported")
+rownames(num_earned) <- c("Before 1980","1980-1989","1990-1999","2000-2009","After 2009","Unreported")
 rep_earned <- rowSums(num_earned,dims=1)
 
 
